@@ -17,10 +17,10 @@ import { baseUrl, fetchApi } from "../utils/fetchApi";
 
 const SearchFilters: FC = () => {
   const [filters, setFilters] = useState(filterData);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [locationData, setLocationData] = useState();
-  const [showLocations, setShowLocations] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [locationData, setLocationData] = useState<any>([]);
+  const [showLocations, setShowLocations] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
 
@@ -29,8 +29,6 @@ const SearchFilters: FC = () => {
     const {query} = router
 
     const values = getFilterValues(filterValues)
-
-    console.log(filterValues);
     
     
     values.forEach((item) => {
@@ -101,7 +99,7 @@ const SearchFilters: FC = () => {
             {loading && <Spinner margin='auto' marginTop='3' />}
             {showLocations && (
               <Box height='300px' overflow='auto'>
-                {locationData?.map((location) => (
+                {locationData?.map((location: any) => (
                   <Box
                     key={location.id}
                     onClick={() => {
