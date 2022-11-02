@@ -50,6 +50,7 @@ const ImageScrollbar: FC<ImageScrollbarProps> = ({ data }) => {
         <Box
           key={item.id}
           width="910px"
+          itemID={item.id}
           overflow="hidden"
           p="1"
         >
